@@ -33,3 +33,5 @@ The repository is named `captaincode21.github.io`, so GitHub Pages serves the `m
 2. In the repository: Settings, Pages, Custom domain, enter it.
 3. At your domain provider, add the DNS records GitHub shows on that page.
 4. Update the `canonical`, `og:url` and `og:image` addresses in `index.html`.
+
+After changing styles.css, projects.js or main.js, raise the ?v= number in the HTML so browsers load the new copy.
