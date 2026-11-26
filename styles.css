@@ -139,4 +139,48 @@ section.page { position: relative; min-height: 100vh; min-height: 100svh; displa
   .tiles { gap: 1.5rem .6rem; }
   .tiles li { width: 5.9rem; font-size: .84rem; }
 }
+/* motion */
+.avatar { animation: pop .9s cubic-bezier(.2, .9, .3, 1.25) both, float 6s 1.2s ease-in-out infinite; }
+.hero .role { animation: rise .7s .25s both; }
+.hero h1 { animation: rise .7s .35s both; }
+.hero .lead { animation: rise .8s .9s both; }
+.hero nav { animation: rise .8s 1.15s both; }
+.top { animation: fade .8s .6s both; }
+.research > .title, .research > .interests { animation: rise .8s both; }
+.research > .interests { animation-delay: .15s; }
+@keyframes pop { from { opacity: 0; scale: .6; } }
+@keyframes float { 50% { translate: 0 -8px; } }
+@keyframes rise { from { opacity: 0; translate: 0 24px; } }
+@keyframes fade { from { opacity: 0; } }
+
+.reveal { opacity: 0; }
+.reveal.up { translate: 0 34px; }
+.reveal.left { translate: -48px 0; }
+.reveal.right { translate: 48px 0; }
+.reveal.pop { scale: .6; }
+.reveal.in { opacity: 1; translate: 0 0; scale: 1; transition: opacity .7s var(--delay), translate .8s cubic-bezier(.2, .7, .2, 1) var(--delay), scale .6s cubic-bezier(.2, .9, .3, 1.3) var(--delay); }
+
+.drawing svg .trace { stroke-dasharray: 1; stroke-linecap: butt; }
+.animated .drawing svg .trace { stroke-dashoffset: 1; }
+.animated.draw .drawing svg .trace { stroke-dashoffset: 0; transition: stroke-dashoffset 1.8s ease-in-out .15s; }
+.animated .drawing svg :is(text, .limit, .est, .head) { opacity: 0; }
+.animated.draw .drawing svg :is(text, .limit, .est, .head) { opacity: 1; transition: opacity .6s 1.5s; }
+.animated .drawing svg .vessel { fill-opacity: 0; }
+.animated.draw .drawing svg .vessel { fill-opacity: 1; transition: stroke-dashoffset 1.8s ease-in-out .15s, fill-opacity .6s 1.5s; }
+.animated .tools li { opacity: 0; translate: 0 10px; }
+.animated.draw .tools li { opacity: 1; translate: 0 0; transition: opacity .4s, translate .4s; }
+.tools li:nth-child(2) { transition-delay: .08s !important; }
+.tools li:nth-child(3) { transition-delay: .16s !important; }
+.tools li:nth-child(4) { transition-delay: .24s !important; }
+.tools li:nth-child(5) { transition-delay: .32s !important; }
+.tools li:nth-child(6) { transition-delay: .4s !important; }
+.tools li:nth-child(7) { transition-delay: .48s !important; }
+
+.tiles svg, .kit > div, .paper, .controls button, .drawing { transition: transform .25s, box-shadow .25s; }
+@media (hover: hover) {
+  .tiles li:hover svg { transform: translateY(-6px) scale(1.06); }
+  .kit > div:hover, .drawing:hover { transform: translateY(-5px); }
+  .controls > button:hover { transform: scale(1.1); }
+}
+
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before { animation: none !important; transition: none !important; } }

@@ -7,6 +7,7 @@ One static page: plain HTML, CSS and JavaScript. No build step and nothing to in
     index.html    main page text and project drawings
     research.html research and publications
     styles.css    colours, type and layout
+    motion.js     scroll-in effects and diagram drawing
     projects.js   the project list
     main.js       typing effect, project slides, back-to-top
     assets/       portrait, font, icons, link preview image
