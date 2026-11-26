@@ -4,7 +4,8 @@ One static page: plain HTML, CSS and JavaScript. No build step and nothing to in
 
 ## Files
 
-    index.html    all the text and project drawings
+    index.html    main page text and project drawings
+    research.html research and publications
     styles.css    colours, type and layout
     projects.js   the project list
     main.js       typing effect, project slides, back-to-top
@@ -17,7 +18,8 @@ Open `index.html` in a browser, or run `python3 -m http.server` here and visit h
 ## Update it
 
 - Projects: edit `projects.js`. Copy a block to add one. Set `status` to Planned, Ongoing or Completed, and fill `repo` or `details` only with real links.
-- Email: in `index.html`, find `To be added` and replace the span with `<a href="mailto:you@example.com">you@example.com</a>`.
+- Papers: edit `research.html`.
+- Contact details: the Contact section of `index.html`.
 - About text and skills: edit `index.html`.
 - Portrait: replace `assets/portrait.webp` with a square image.
 

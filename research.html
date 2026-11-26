@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Research and publications | Opeyemi Sodiq Bisiriyu</title>
+  <meta name="description" content="Published conference paper, undergraduate thesis and manuscripts in preparation by Opeyemi Sodiq Bisiriyu.">
+  <link rel="canonical" href="https://captaincode21.github.io/research.html">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="scrolled sub">
+  <header class="top">
+    <span class="links"><a href="https://www.linkedin.com/in/opeyemi-bisiriyu-a831b3240">LinkedIn</a><a href="https://github.com/captaincode21">GitHub</a></span>
+    <a class="home" href="./" aria-label="Home"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m3 11 9-8 9 8M5.500 9.500V20h13V9.500M10 20v-6h4v6"/></svg></a>
+    <a class="touch" href="./#contact">Get in touch</a>
+  </header>
+
+  <main class="research">
+    <h1 class="title">Research</h1>
+    <p class="interests">Research interests: process systems and control engineering, artificial intelligence for smart energy systems, physics-informed neural networks, self-sustaining and intelligent systems, and flow assurance engineering.</p>
+
+    <h2>Published conference paper</h2>
+    <article class="paper">
+      <h3>Proactive Prediction of Gas Hydrate Formation in Subsea Pipelines Using Continuous-Time Data-Driven Modelling</h3>
+      <p class="cite"><strong>O. S. Bisiriyu</strong>, O. I. Oyelumade, O. D. Oyeyemi and P. O. Akomolafe. SPE Nigeria Annual International Conference and Exhibition (NAICE), Paper ID 380, August 2026.</p>
+      <p>A Neural ODE predicts the hydrate mass in the oil layer at the topside of a subsea pipeline from 16 process variables recorded at three nodes. It used nine OLGA FA simulation cases that varied pressure (180 to 220 bar), temperature (40 to 60 &deg;C) and total water fraction (0.30 to 0.50).</p>
+      <table>
+        <caption>Cases held out from training</caption>
+        <thead><tr><th scope="col">Model</th><th scope="col">RMSE</th><th scope="col">MAE</th><th scope="col">R&sup2;</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Neural ODE</th><td>1.4090</td><td>0.6194</td><td>0.8920</td></tr>
+          <tr><th scope="row">LSTM</th><td>2.3288</td><td>2.0588</td><td>0.7049</td></tr>
+        </tbody>
+      </table>
+      <div class="figs">
+        <figure><img src="assets/research/validation-case-7.webp" width="764" height="468" loading="lazy" alt="True and predicted hydrate mass over time for validation case 7"><figcaption>Validation case 7, from the project repository</figcaption></figure>
+        <figure><img src="assets/research/test-case-8.webp" width="764" height="468" loading="lazy" alt="True and predicted hydrate mass over time for test case 8"><figcaption>Test case 8, from the project repository</figcaption></figure>
+      </div>
+      <p><a class="more" href="https://onepetro.org/SPENAIC/proceedings-abstract/26NAIC/26NAIC/802210">Paper on OnePetro</a><a class="more" href="https://github.com/captaincode21/hydrate-node-flowassurance">Code on GitHub</a></p>
+    </article>
+
+    <h2>Undergraduate thesis</h2>
+    <article class="paper">
+      <h3>Data-Driven Nonlinear Model Predictive Control Using a Stability-Constrained Latent Neural Ordinary Differential Equation</h3>
+      <p class="cite">Obafemi Awolowo University, 2026. Supervisor: Dr. Ayorinde Bamimore.</p>
+      <p>A latent neural ODE with an LSTM encoder, a latent vector field that is contractive by construction and a decoder, trained from measurable inputs and outputs only. The guarantee is incremental input-to-state stability of the latent model.</p>
+      <p>The model was used for prediction in an offset-free NMPC with a disturbance observer, tested in simulation on a pH neutralisation process, a nonlinear CSTR with an unstable steady state and a cascaded three-tank system.</p>
+    </article>
+
+    <h2>Manuscripts in preparation</h2>
+    <article class="paper">
+      <h3>Offset-free NMPC of a pH neutralisation process using a stability-constrained latent neural ODE</h3>
+      <p class="cite"><strong>O. S. Bisiriyu</strong> and A. Bamimore. In preparation, 2026.</p>
+    </article>
+    <article class="paper">
+      <h3>Offset-free NMPC of an open-loop unstable CSTR using a stability-constrained latent neural ODE</h3>
+      <p class="cite"><strong>O. S. Bisiriyu</strong> and A. Bamimore. In preparation, 2026.</p>
+    </article>
+  </main>
+</body>
+</html>

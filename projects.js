@@ -31,4 +31,14 @@ const PROJECTS = [
     repo: '',
     details: '',
   },
+  {
+    title: 'LLM inference server with latency-aware control',
+    category: 'AI inference engineering',
+    status: 'Planned',
+    summary: 'Serve an open language model, measure time to first token, throughput and cost, improve them with quantization and batching, and use a feedback controller to hold a response-time target as load changes.',
+    tools: ['vLLM', 'Quantization', 'FastAPI', 'Docker', 'Locust', 'Prometheus', 'Grafana'],
+    art: 'serving',
+    repo: '',
+    details: '',
+  },
 ];
