@@ -8,6 +8,8 @@ One static page: plain HTML, CSS and JavaScript. No build step and nothing to in
     research.html research and publications
     styles.css    colours, type and layout
     motion.js     scroll-in effects and diagram drawing
+    theme.js      light and black theme switch
+    trend.js      live control trend on the opening screen
     projects.js   the project list
     main.js       typing effect, project slides, back-to-top
     assets/       portrait, font, icons, link preview image

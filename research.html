@@ -7,13 +7,24 @@
   <meta name="description" content="Published conference paper, undergraduate thesis and manuscript in preparation by Opeyemi Sodiq Bisiriyu.">
   <link rel="canonical" href="https://captaincode21.github.io/research.html">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="styles.css?v=3">
+  <script>
+    // pick the theme before the page paints
+    try { var t = localStorage.getItem('theme'); } catch (e) {}
+    document.documentElement.dataset.theme = t || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+  </script>
+  <link rel="stylesheet" href="styles.css?v=4">
 </head>
 <body class="scrolled sub">
   <header class="top">
     <span class="links"><a href="https://www.linkedin.com/in/opeyemi-bisiriyu-a831b3240">LinkedIn</a><a href="https://github.com/captaincode21">GitHub</a></span>
     <a class="home" href="./" aria-label="Home"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m3 11 9-8 9 8M5.500 9.500V20h13V9.500M10 20v-6h4v6"/></svg></a>
-    <a class="touch" href="./#contact">Get in touch</a>
+    <span class="right">
+      <button type="button" class="theme" aria-label="Black theme" aria-pressed="false" hidden>
+        <svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.500A8.500 8.500 0 0 1 9.500 4 8.500 8.500 0 1 0 20 14.500z"/></svg>
+        <svg class="sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2.500M12 19.500V22M2 12h2.500M19.500 12H22M4.900 4.900l1.800 1.800M17.300 17.300l1.800 1.800M19.100 4.900l-1.800 1.800M6.700 17.300l-1.800 1.800"/></svg>
+      </button>
+      <a class="touch" href="./#contact"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="1.5"/><path d="m3.500 6.500 8.500 6.500 8.500-6.500"/></svg><span>Get in touch</span></a>
+    </span>
   </header>
 
   <main class="research">
@@ -55,6 +66,7 @@
       <p>One methodology paper, with a pH neutralisation process and a nonlinear CSTR as simulation examples.</p>
     </article>
   </main>
-  <script src="motion.js?v=3"></script>
+  <script src="theme.js?v=4"></script>
+  <script src="motion.js?v=4"></script>
 </body>
 </html>

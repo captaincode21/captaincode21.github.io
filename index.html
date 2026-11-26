@@ -14,7 +14,12 @@
   <meta property="og:image" content="https://captaincode21.github.io/assets/og.png">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="preload" href="assets/figtree.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="styles.css?v=3">
+  <script>
+    // pick the theme before the page paints
+    try { var t = localStorage.getItem('theme'); } catch (e) {}
+    document.documentElement.dataset.theme = t || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+  </script>
+  <link rel="stylesheet" href="styles.css?v=4">
   <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Person", "name": "Opeyemi Sodiq Bisiriyu", "url": "https://captaincode21.github.io/", "image": "https://captaincode21.github.io/assets/portrait.webp", "address": {"@type": "PostalAddress", "addressLocality": "Lagos", "addressCountry": "NG"}, "alumniOf": "Obafemi Awolowo University", "sameAs": ["https://github.com/captaincode21", "https://www.linkedin.com/in/opeyemi-bisiriyu-a831b3240", "https://huggingface.co/CaptainMAL"]}</script>
 </head>
 <body>
@@ -22,30 +27,38 @@
   <header class="top">
     <span class="links"><a href="https://www.linkedin.com/in/opeyemi-bisiriyu-a831b3240">LinkedIn</a><a href="https://github.com/captaincode21">GitHub</a></span>
     <a class="home" href="#home" aria-label="Back to top"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m3 11 9-8 9 8M5.500 9.500V20h13V9.500M10 20v-6h4v6"/></svg></a>
-    <a class="touch" href="#contact"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="1.5"/><path d="m3.500 6.500 8.500 6.500 8.500-6.500"/></svg>Get in touch</a>
+    <span class="right">
+      <button type="button" class="theme" aria-label="Black theme" aria-pressed="false" hidden>
+        <svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.500A8.500 8.500 0 0 1 9.500 4 8.500 8.500 0 1 0 20 14.500z"/></svg>
+        <svg class="sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2.500M12 19.500V22M2 12h2.500M19.500 12H22M4.900 4.900l1.800 1.800M17.300 17.300l1.800 1.800M19.100 4.900l-1.800 1.800M6.700 17.300l-1.800 1.800"/></svg>
+      </button>
+      <a class="touch" href="#contact"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="1.5"/><path d="m3.500 6.500 8.500 6.500 8.500-6.500"/></svg><span>Get in touch</span></a>
+    </span>
   </header>
 
   <main>
     <div class="hero" id="home">
       <span class="ring"></span><span class="ring"></span><span class="ring"></span>
-      <img class="avatar" src="assets/portrait.webp" width="720" height="720" alt="Illustrated portrait of Opeyemi">
+      <canvas class="trend" id="trend" aria-hidden="true"></canvas>
+      <img class="avatar" src="assets/portrait.webp?v=2" width="1024" height="1024" alt="Illustrated portrait of Opeyemi">
       <p class="role"><span>Process Control</span> <span>&amp; Scientific ML</span></p>
       <h1><span class="sr">Hi, I'm Opeyemi</span><span aria-hidden="true"><span id="typed">Hi, I'm Opeyemi</span><span class="cursor"></span></span></h1>
       <p class="lead">I build intelligent engineering systems by bringing together process control, scientific machine learning, and dynamic modelling to solve complex problems in energy and industry.</p>
       <nav aria-label="Sections"><a href="#about">About</a><a href="#skills">Skills</a><a href="#projects">Projects</a><a href="research.html">Research</a><a href="#contact">Contact</a></nav>
     </div>
 
-    <section class="page" id="about" aria-labelledby="h-about">
+    <section class="page night" id="about" aria-labelledby="h-about">
       <h2 class="title" id="h-about">About</h2>
       <div class="wrap about">
-        <img src="assets/portrait.webp" width="720" height="720" alt="" loading="lazy">
+        <h3>Chemical engineering, control and <em>machine learning</em></h3>
         <div>
-          <h3>Chemical engineering, control and machine learning</h3>
           <p>I am a First-Class Chemical Engineering graduate of Obafemi Awolowo University, Nigeria, with a CGPA of 4.80/5.00.</p>
           <p>My undergraduate research involved stability-informed Latent Neural Ordinary Differential Equations for Nonlinear Model Predictive Control. I have also worked on Neural ODE-based forecasting of gas hydrate formation in subsea multiphase pipelines, with the research published in the 2026 SPE Nigeria Annual International Conference and Exhibition proceedings.</p>
+        </div>
+        <div>
           <p>I aspire to work in Process Systems Engineering and Process Control, integrating machine learning into real engineering operations. I am also developing my capabilities as an ML Engineer.</p>
           <p>I am also a co-founder at Procelligence AI.</p>
-          <p><a class="more" href="research.html">Research and publications</a></p>
+          <p><a class="button" href="research.html">Research and publications</a></p>
         </div>
       </div>
     </section>
@@ -53,20 +66,59 @@
     <section class="page" id="skills" aria-labelledby="h-skills">
       <h2 class="title" id="h-skills">Skills</h2>
       <div class="wrap">
-        <div class="group">
-          <h3>Tools</h3>
-          <div class="kit">
-            <div><h4>Programming</h4><ul class="chips"><li>Python</li><li>MATLAB</li><li>Simulink</li></ul></div>
-            <div><h4>Python libraries</h4><ul class="chips"><li>NumPy</li><li>SciPy</li><li>PyTorch</li><li>torchdiffeq</li><li>TensorFlow</li><li>scikit-learn</li><li>CasADi</li><li>Optuna</li><li>MLflow</li></ul></div>
-            <div><h4>Process simulation</h4><ul class="chips"><li>Aspen HYSYS (moderate)</li><li>Aspen Plus (moderate)</li><li>OLGA FA</li></ul></div>
-            <div><h4>Hardware</h4><ul class="chips"><li>STM32 microcontrollers</li><li>ADC sensing</li><li>PWM actuation</li></ul></div>
-            <div><h4>Control and estimation</h4><ul class="chips"><li>MPC and NMPC</li><li>Offset-free control</li><li>Extended Kalman filter</li><li>State and disturbance estimation</li><li>PID tuning</li><li>Lyapunov and input-to-state stability</li><li>Root locus, Bode and Nyquist</li></ul></div>
-            <div><h4>Modelling and machine learning</h4><ul class="chips"><li>First-principles modelling</li><li>System identification</li><li>Neural ODE</li><li>LSTM and GRU</li><li>Feedforward networks</li><li>Time-series forecasting</li><li>Data cleaning and analysis</li></ul></div>
-          </div>
+        <div class="bento">
+          <article class="card code">
+            <h3>Python</h3>
+<pre><code><i>import</i> numpy <i>as</i> np
+<i>import</i> scipy
+<i>import</i> torch
+<i>from</i> torchdiffeq <i>import</i> odeint
+<i>import</i> tensorflow <i>as</i> tf
+<i>import</i> sklearn   <b># scikit-learn</b>
+<i>import</i> casadi <i>as</i> ca
+<i>import</i> optuna
+<i>import</i> mlflow</code></pre>
+          </article>
+          <article class="card blueprint">
+            <h3>MATLAB and Simulink</h3>
+            <svg viewBox="0 0 360 130" role="img" aria-label="Feedback control block diagram">
+              <path class="wire" d="M8 48H52M80 48H110M190 48H220M300 48H352M326 48V108H66V62"/>
+              <circle cx="66" cy="48" r="14"/><rect x="110" y="26" width="80" height="44" rx="4"/><rect x="220" y="26" width="80" height="44" rx="4"/>
+              <path class="tip" d="M52 48l-9-5v10zM110 48l-9-5v10zM220 48l-9-5v10zM352 48l-9-5v10zM66 62l-5 9h10z"/>
+              <text x="66" y="53">&Sigma;</text><text x="150" y="52">Controller</text><text x="260" y="52">Plant</text><text x="46" y="78">&minus;</text>
+            </svg>
+          </article>
+          <article class="card flowsheet">
+            <h3>Process simulation</h3>
+            <svg viewBox="0 0 360 120" aria-hidden="true">
+              <path class="wire" d="M8 86H44M80 86H128M152 22V10H214V22M152 98v12h62V98M240 60h40M316 60h36"/>
+              <circle cx="62" cy="86" r="18"/><path d="M50 99l12-31 12 31"/>
+              <rect x="128" y="22" width="48" height="76" rx="22"/><path d="M128 46h48M128 60h48M128 74h48"/>
+              <circle cx="214" cy="60" r="26"/><path d="M198 76l32-32M214 22v12M214 86v12"/>
+              <path d="M280 40h36l-8 40h-20z"/>
+            </svg>
+            <ul><li>Aspen HYSYS <span>moderate</span></li><li>Aspen Plus <span>moderate</span></li><li>OLGA FA</li></ul>
+          </article>
+          <article class="card board">
+            <h3>Hardware</h3>
+            <svg viewBox="0 0 360 100" preserveAspectRatio="none" aria-hidden="true">
+              <path class="pwm" d="M0 78H20V22H44V78H80V22H128V78H160V22H232V78H260V22H284V78H320V22H340V78H360"/>
+            </svg>
+            <ul><li>STM32 microcontrollers</li><li>ADC sensing</li><li>PWM actuation</li></ul>
+          </article>
         </div>
-        <div class="group">
-          <h3>Focus areas</h3>
-          <ul class="tiles">
+      </div>
+
+      <div class="ribbons">
+        <h3 class="sub-title">Control and estimation</h3>
+        <div class="ribbon"><ul><li>MPC and NMPC</li><li>Offset-free control</li><li>Extended Kalman filter</li><li>State and disturbance estimation</li><li>PID tuning</li><li>Lyapunov and input-to-state stability</li><li>Root locus, Bode and Nyquist</li></ul></div>
+        <h3 class="sub-title">Modelling and machine learning</h3>
+        <div class="ribbon back"><ul><li>First-principles modelling</li><li>System identification</li><li>Neural ODE</li><li>LSTM and GRU</li><li>Feedforward networks</li><li>Time-series forecasting</li><li>Data cleaning and analysis</li></ul></div>
+      </div>
+
+      <div class="wrap">
+        <h3 class="sub-title">Focus areas</h3>
+        <ul class="mosaic">
           <li><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="3" width="7" height="6" rx="1"/><rect x="15" y="15" width="7" height="6" rx="1"/><path d="M9 6h9.500v9M15 18H5.500V9"/></svg>Process systems engineering</li>
           <li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="6" cy="9" r="3"/><rect x="13" y="5.500" width="8" height="7" rx="1"/><path d="M1 9h2M9 9h4M21 9h2M18 12.500V19H6v-7"/></svg>Automatic and advanced process control</li>
           <li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="4" cy="7" r="2"/><circle cx="4" cy="17" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="20" cy="12" r="2"/><path d="M6 8l4 3M6 16l4-3M14 12h4"/></svg>Machine learning and scientific ML</li>
@@ -74,21 +126,18 @@
           <li><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="m10 9 5 3-5 3z"/></svg>Engineering simulation</li>
           <li><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="11" height="11" rx="2"/><rect x="10" y="10" width="11" height="11" rx="2" stroke-dasharray="3 2.500"/></svg>Digital twins</li>
           <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 21V10l6 4v-4l6 4V4h4l2 17z"/></svg>Intelligent industrial systems</li>
-          </ul>
-        </div>
-        <div class="group">
-          <h3>Developing as an ML engineer</h3>
-          <ul class="tiles">
-          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 4 7.500v9l8 4.500 8-4.500v-9zM4 7.500l8 4.500 8-4.500M12 12v9"/></svg>Model development</li>
+        </ul>
+        <h3 class="sub-title">Developing as an ML engineer</h3>
+        <ol class="pipeline">
           <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20V11M10 20V5M16 20v-6M22 20H2"/></svg>Data analysis</li>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 4 7.500v9l8 4.500 8-4.500v-9zM4 7.500l8 4.500 8-4.500M12 12v9"/></svg>Model development</li>
           <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 7-5 5 5 5M16 7l5 5-5 5M14 4l-4 16"/></svg>Software implementation</li>
           <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 15V4M7 9l5-5 5 5M4 15v5h16v-5"/></svg>Deployment of intelligent systems</li>
-          </ul>
-        </div>
+        </ol>
       </div>
     </section>
 
-    <section class="page projects" id="projects" aria-labelledby="h-projects">
+    <section class="page projects night" id="projects" aria-labelledby="h-projects">
       <h2 class="title" id="h-projects">Projects</h2>
       <div class="wrap">
         <div class="track" id="track" tabindex="0" role="region" aria-label="Planned projects"></div>
@@ -101,17 +150,17 @@
       </div>
     </section>
 
-    <section class="page" id="contact" aria-labelledby="h-contact">
+    <section class="page finale" id="contact" aria-labelledby="h-contact">
       <h2 class="title" id="h-contact">Contact</h2>
       <div class="wrap contact">
         <h3>Let&rsquo;s talk.</h3>
-        <dl>
-          <dt>Email</dt><dd><a href="mailto:bisiriyuopeyemi2020@gmail.com">bisiriyuopeyemi2020@gmail.com</a></dd>
-          <dt>LinkedIn</dt><dd><a href="https://www.linkedin.com/in/opeyemi-bisiriyu-a831b3240">opeyemi-bisiriyu</a></dd>
-          <dt>GitHub</dt><dd><a href="https://github.com/captaincode21">captaincode21</a></dd>
-          <dt>Hugging Face</dt><dd><a href="https://huggingface.co/CaptainMAL">CaptainMAL</a></dd>
-          <dt>Location</dt><dd>Lagos, Nigeria</dd>
-        </dl>
+        <a class="mail" href="mailto:bisiriyuopeyemi2020@gmail.com">bisiriyuopeyemi2020@gmail.com</a>
+        <ul>
+          <li><a href="https://www.linkedin.com/in/opeyemi-bisiriyu-a831b3240">LinkedIn</a></li>
+          <li><a href="https://github.com/captaincode21">GitHub</a></li>
+          <li><a href="https://huggingface.co/CaptainMAL">Hugging Face</a></li>
+        </ul>
+        <p>Lagos, Nigeria</p>
       </div>
     </section>
   </main>
@@ -144,7 +193,9 @@
 <text x="48" y="32">Response time</text><text x="372" y="58" text-anchor="end">Target</text><text x="48" y="136">Request load</text><text x="372" y="222" text-anchor="end">Time</text></svg></template>
 
   <script src="projects.js?v=2"></script>
+  <script src="theme.js?v=4"></script>
   <script src="main.js?v=2"></script>
-  <script src="motion.js?v=3"></script>
+  <script src="trend.js?v=4"></script>
+  <script src="motion.js?v=4"></script>
 </body>
 </html>

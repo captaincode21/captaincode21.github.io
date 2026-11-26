@@ -3,12 +3,12 @@
 if ('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
   // [selector, entry style, delay between neighbours in ms]
   const groups = [
-    ['.title:not(.research .title), .group > h3, .contact h3, .research h2', 'up', 0],
-    ['.about img', 'left', 0],
-    ['.about > div > *', 'right', 110],
-    ['.kit > div, .paper, .figs figure', 'up', 90],
-    ['.tiles li', 'pop', 70],
-    ['.contact dt, .contact dd', 'up', 60],
+    ['.title:not(.research .title), .sub-title, .research h2', 'up', 0],
+    ['.about > h3', 'left', 0],
+    ['.about > div', 'right', 120],
+    ['.card, .paper, .figs figure', 'up', 90],
+    ['.mosaic li, .pipeline li', 'pop', 70],
+    ['.contact > *', 'up', 90],
     ['.controls', 'up', 0],
   ];
 
@@ -44,5 +44,15 @@ if ('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: re
     });
     slide.classList.add('animated');
     draw.observe(slide);
+  });
+}
+
+// wires in the skill cards draw once they are on screen; the ribbons repeat for a seamless loop
+if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  document.querySelectorAll('.ribbon').forEach((r) => {
+    const copy = r.firstElementChild.cloneNode(true);
+    copy.setAttribute('aria-hidden', 'true');
+    r.append(copy);
+    r.classList.add('moving');
   });
 }
